@@ -10,7 +10,7 @@ const {apiPokemons } = environment;
 })
 export class PokemonCatalogueService {
 
-  private _pokemons: Pokemon[]= [];
+  _pokemons: Pokemon[]= [];
   private _error: string = "";
   private _loading: boolean = false;
 

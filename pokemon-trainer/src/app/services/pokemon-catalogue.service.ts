@@ -4,6 +4,7 @@ import { finalize, map } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Pokemon } from '../models/pokemon.model';
 import { PokemonAPI } from '../models/pokemonAPI.model';
+
 const {apiPokemons } = environment;
 
 @Injectable({
@@ -45,12 +46,14 @@ export class PokemonCatalogueService {
           this._loading = false;
         })
       )
-      .subscribe(
-        (results: Pokemon[]) => {
-          for(let result of results) {
-            this.pokemons.push(result)
+      .subscribe({
+        next: (pokemons: Pokemon[]) => {
+          this._pokemons = pokemons;
+          for (let i = 0; i < pokemons.length; i++) {
+            pokemons[i].pokemonimg = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${i +1}.png`
           }
         }
+      }
       ),{
         error: (error: HttpErrorResponse) => {
         }

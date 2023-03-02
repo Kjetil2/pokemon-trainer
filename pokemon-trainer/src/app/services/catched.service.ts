@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { Pokemon } from '../models/pokemon.model';
 import { User } from '../models/user.model';
 import { HttpHeaders } from '@angular/common/http';
-import { Observable, finalize, tap } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 
 
 const { apiKey, apiUsers} = environment;
@@ -16,11 +16,6 @@ const { apiKey, apiUsers} = environment;
 })
 export class CaughtPokemonService {
 
-  private _loading: boolean = false; 
-
-  get loading(): boolean {
-    return this._loading;
-  }
 
   constructor(
     private http: HttpClient,
@@ -59,7 +54,6 @@ export class CaughtPokemonService {
       "x-api-key": apiKey
     })
 
-    this._loading = true; 
 
     return this.http.patch<User>(`${apiUsers}/${user.id}`, {
       pokemon: [...user.pokemon] //Already updated
@@ -69,9 +63,6 @@ export class CaughtPokemonService {
     .pipe(
       tap((updatedUser: User) => {
         this.userService.user = updatedUser;
-      }),
-      finalize(() => {
-        this._loading = false; 
       })
     )
   }

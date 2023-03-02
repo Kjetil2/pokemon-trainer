@@ -35,6 +35,11 @@ export class PokemonCatalogueService {
 
 
   public findAllPokemons(): void{
+    if (this._pokemons.length > 0 || this.loading) {
+      return;
+    }
+
+
     if(!this._apiDone){
       this._loading = true;
       this.http.get<PokemonAPI>(apiPokemons)
@@ -61,7 +66,7 @@ export class PokemonCatalogueService {
     }
     this._apiDone = true;
   }
-
+  
 
   public pokemonByName(name: string): Pokemon | undefined {
     return this._pokemons.find((pokemon: Pokemon) => pokemon.name === name); 

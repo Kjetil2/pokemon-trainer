@@ -12,14 +12,9 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class CatchedButtonComponent implements OnInit {
 
+  public loading: boolean = false; 
   public isCaught: boolean = false; 
   @Input() pokemonName: string ="";
-
-
-  get loading(): boolean {
-    return this.caughtPokemonService.loading;
-  }
-
 
   constructor(
     private userService: UserService,
@@ -33,11 +28,13 @@ export class CatchedButtonComponent implements OnInit {
   }
 
   onCatchedClick(): void {
+    this.loading = true; 
     //add the pokemon to catched
     alert("Congrats! You catched " + this.pokemonName + "!")
     this.caughtPokemonService.addToCatched(this.pokemonName)
       .subscribe({
         next: (user: User) => {
+          this.loading = false; 
           this.isCaught = this.userService.inCatched(this.pokemonName);
         },
         
@@ -49,6 +46,3 @@ export class CatchedButtonComponent implements OnInit {
   }
 
 }
-
-// next: (response: User) => {
-//   console.log("NEXT", response); 

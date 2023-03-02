@@ -63,26 +63,8 @@ export class PokemonCatalogueService {
   }
 
 
+  public pokemonByName(name: string): Pokemon | undefined {
+    return this._pokemons.find((pokemon: Pokemon) => pokemon.name === name); 
+  }
 
-
-  // public findAllPokemons(): void {
-  //   this._loading = true;
-  //   this.http.get<Pokemon[]>(apiPokemons)
-  //   .pipe(
-  //     finalize(() => {
-  //       this._loading = false;
-  //     })
-  //   )
-  //   .subscribe({
-  //     next: (pokemons: Pokemon[]) => {
-  //       if (pokemons && pokemons.length > 0) {
-  //         this.pokemons.push(pokemons[0]);
-  //       }
-  //       // console.log(pokemons)
-  //     },
-  //     error: (error: HttpErrorResponse) => {
-  //       this._error = error.message;
-  //     }
-  //   })
-  // }
 }

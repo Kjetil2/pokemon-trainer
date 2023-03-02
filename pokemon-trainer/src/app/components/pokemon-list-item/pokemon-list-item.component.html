@@ -1,9 +1,8 @@
-<li *ngIf="pokemon">
-    <section>
-        <img [src]="pokemon.pokemonimg" [alt]="pokemon.name">
-        <section>
-
-        </section>
+<li *ngIf="pokemon" class="mb-4 shadow">
+    <section class="p-4">
+        <img [src]="pokemon.pokemonimg" [alt]="pokemon.name" class="block w-72">
     </section>
-    <span><b> {{pokemon.name}}</b></span>
+    <section class="p-4">
+    <span class="text-xl"><b> {{pokemon.name}}</b></span>
+    </section>
 </li>

@@ -1,3 +1,21 @@
-<aside class="absolute top">
-    <button>Catched</button>
+<aside class="absolute top-4 right-4">
+    <button 
+    (click)="onCatchedClick()"
+        class="border border-slate-300 rounded flex justify-center items-center p-2">
+
+        <ng-container *ngIf="!loading; else spinner">
+            <ng-container *ngIf="isCaught; then caught else notCaught" class="material-icons"></ng-container>
+            <ng-template #caught>
+                <span class="material-icons text-red-600">catching_pokemon</span>
+            </ng-template>
+            <ng-template #notCaught>
+                <span class="material-icons text-blue-600">catching_pokemon</span>
+            </ng-template>
+        </ng-container>
+
+        <ng-template #spinner>
+            <span class="material-icons animate-spin">refresh</span>
+        </ng-template>
+
+    </button>
 </aside>

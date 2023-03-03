@@ -23,9 +23,6 @@ export class CaughtPokemonService {
     private readonly userService: UserService,
 
   ) { }
-  //get the pokemon based on ??
-
-  // patch request with the userId and the pokemon
 
   public addToCatched(pokemonName: string): Observable<User> { 
     if (!this.userService.user) {
@@ -33,12 +30,10 @@ export class CaughtPokemonService {
     }
 
     const user: User = this.userService.user;
-    //const pokemon = this.pokemonCatalogueService.getPokemon(name)
 
     const pokemon: Pokemon | undefined = this.pokemonService.pokemonByName(pokemonName)
 
     if (!pokemon) {
-      //throw new Error("addToCatched: No pokemon with id: " + pokemonId)
       throw new Error("addToCatched: No pokemon with name: " + pokemonName)
     }
 

@@ -30,7 +30,6 @@ export class CatchedButtonComponent implements OnInit {
   onCatchedClick(): void {
     this.loading = true; 
     //add the pokemon to catched
-    alert("Congrats! You catched " + this.pokemonName + "!")
     this.caughtPokemonService.addToCatched(this.pokemonName)
       .subscribe({
         next: (user: User) => {

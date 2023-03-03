@@ -6,15 +6,17 @@
         <ng-container *ngIf="!loading; else spinner">
             <ng-container *ngIf="isCaught; then caught else notCaught" class="material-icons"></ng-container>
             <ng-template #caught>
-                <span class="material-icons text-red-600">catching_pokemon</span>
+                <span class="material-icons text-red-600 text-5xl">catching_pokemon</span>
+                <div>Caught!</div>
             </ng-template>
             <ng-template #notCaught>
-                <span class="material-icons text-blue-600">catching_pokemon</span>
+                <span class="material-icons text-black text-5xl">catching_pokemon</span>
+                <div>Catch me!</div>
             </ng-template>
         </ng-container>
 
         <ng-template #spinner>
-            <span class="material-icons animate-spin">refresh</span>
+            <span class="material-icons animate-spin text-5xl">refresh</span>
         </ng-template>
 
     </button>

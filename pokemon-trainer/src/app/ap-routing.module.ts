@@ -1,6 +1,7 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { AuthGuard } from "./guards/auth.guard";
+import { LoginGuard } from "./guards/login.guard";
 import { CatalogueComponent } from "./pages/catalogue/catalogue.component";
 import { LoginPage} from "./pages/login/login.page";
 import { TrainerComponent } from "./pages/trainer/trainer.component";
@@ -13,7 +14,9 @@ const routes: Routes = [
     },
     {
         path:"login",
-        component: LoginPage
+        component: LoginPage,
+        canActivate: [LoginGuard]
+        
     },
     {
         path:"trainer",

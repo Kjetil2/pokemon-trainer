@@ -21,6 +21,11 @@ export class AuthGuard implements CanActivate {
     if (this.userService.user) {
       return true;
     }
+
+    if (this.userService.user) {
+      this.router.navigateByUrl('/pokemons');
+      return false;}
+ 
     else {
       this.router.navigateByUrl("/login");
       return false

@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { CaughtPokemonService } from 'src/app/services/catched.service';
-import { Pokemon } from 'src/app/models/pokemon.model';
 import { HttpErrorResponse } from '@angular/common/http';
 import { User } from 'src/app/models/user.model';
 import { UserService } from 'src/app/services/user.service';

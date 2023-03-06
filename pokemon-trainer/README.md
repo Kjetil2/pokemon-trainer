@@ -20,7 +20,7 @@ PRs accepted.
 Small note: If editing the Readme, please conform to the [standard-readme](https://github.com/RichardLitt/standard-readme) specification.
 
 ## Hosting
-[![Netlify Status](https://api.netlify.com/api/v1/badges/e6a52fe8-87dc-44b7-b7bf-c2befae40b19/deploy-status)]([https://app.netlify.com/sites/pokemonannekjetil/deploys](https://pokemonannekjetil.netlify.app/)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/e6a52fe8-87dc-44b7-b7bf-c2befae40b19/deploy-status)](https://pokemonannekjetil.netlify.app)
 
 ## License
 
